@@ -5,8 +5,9 @@ TEST_RESONANCES AXIS=X
 TEST_RESONANCES AXIS=Y
 
 
-resonances_y_20221118_135331.csv
-resonances_x_20221118_133443.csv
+/tmp/resonances_y_20221118_135331.csv
+/tmp/resonances_x_20221118_133443.csv
+(no permission to delete these and no sudo, will have to clean up later)
 
 ssh creality@sonicpad
 pass:creality
@@ -51,7 +52,9 @@ Recommended shaper is ei @ 48.0 Hz
 
 
 
-creality@spad-7580:~$ ls -la /mnt/UDISK/.crealityprint/upload
-creality@spad-7580:~$ ls -la /mnt/UDISK/.crealityprint/videos
-creality@spad-7580:~$ ls -la /mnt/UDISK/printer_config
-creality@spad-7580:~$ ls -la /mnt/UDISK/printer_logs
+ls -la /mnt/UDISK/.crealityprint/upload
+ls -la /mnt/UDISK/.crealityprint/videos
+ls -la /mnt/UDISK/printer_config
+ls -la /mnt/UDISK/printer_logs
+
+cp /tmp/*.png /mnt/UDISK/printer_config

@@ -152,6 +152,7 @@ set_digital_out pin=PA0 value=1
 set_digital_out pin=PA1 value=1
 
 
+; free /dev/serial/by-id/usb_serial_2 if klipper has lock
 /usr/share/klippy-env/bin/python /usr/share/klipper/klippy/console.py /dev/serial/by-id/usb_serial_2
 clear_shutdown
 set_digital_out pin=PA3 value=1

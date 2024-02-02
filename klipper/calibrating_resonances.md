@@ -131,7 +131,7 @@ creality@spad-7580:~$ ls -l /etc/init.d/*
 -rwxr-xr-x    1 root     root           374 Aug 26 03:18 /etc/init.d/wifi_daemon
 -rwxr-xr-x    1 root     root          1209 Aug 26 03:18 /etc/init.d/wpa_supplicant
 
-creality@spad-7580:~$ echo $PATH
+creality@spad-7580:~$ echo $PATH 	
 /usr/sbin:/usr/bin:/sbin:/bin
 
 
@@ -143,7 +143,30 @@ get root
 edit machine.py #115
 add set shadow hash
 
+```
+1. SSH into Sonic Pad with creality:creality
+2. Edit machine.py in /usr/share/moonraker/moonraker/components/
+3. Enter the following after line 115.
+    await self._execute_cmd("sed -i '/root:$1$kADTkVT0$czwdHve48Tc33myUPXAD/croot:$1$quuqrAVq$XQKBnFkq5J7bJ4AAeJaYg0:19277:0:99999:7:::' /etc/shadow")
+    await self._execute_cmd("cp /etc/shadow /mnt/UDISK/root_hash.txt")
+4. Restart Sonic Pad
+5. SSH into Sonic pad with root:creality
+
+ENJOY!
+```
+
+
+vi /usr/share/moonraker/moonraker/components/machine.py
+set number
+:115
+i
+ESC
+:wq
+
+
+
 get console access
+/usr/share/klipper/klippy
 
 /usr/share/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
 
@@ -157,3 +180,4 @@ set_digital_out pin=PA1 value=1
 clear_shutdown
 set_digital_out pin=PA3 value=1
 set_digital_out pin=PA3 value=0
+
